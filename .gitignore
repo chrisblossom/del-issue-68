@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+*.swp
+*.log
+*.ignore
+.idea
+.vscode
+.cache
+yarn.lock
