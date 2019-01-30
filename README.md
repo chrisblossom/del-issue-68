@@ -2,7 +2,7 @@
 
 ## Usage
 
-``node 8.9+ required (async/await)``
+``node 10.3+ required (async/await)``
 
 ``npm run start``
 

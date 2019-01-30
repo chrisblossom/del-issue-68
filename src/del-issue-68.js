@@ -67,7 +67,7 @@ async function run() {
 
     console.log('sync starting');
     let sync = 0;
-    for (const x of arr) {
+    for await (const x of arr) {
         await createFiles();
         try {
             removeFilesSync();
@@ -84,7 +84,7 @@ async function run() {
 
     console.log('async starting');
     let async = 0;
-    for (const x of arr) {
+    for await (const x of arr) {
         await createFiles();
         try {
             await removeFiles();
