@@ -5,19 +5,9 @@ const os = require('os');
 const path = require('path');
 const makeDir = require('make-dir');
 const del = require('del');
+const { promisify } = require('util');
 
-function writeFile(file, contents = '', options = {}) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(file, contents, options, (error) => {
-            if (error) {
-                reject(error);
-
-                return;
-            }
-            resolve();
-        });
-    });
-}
+const writeFile = promisify(fs.writeFile);
 
 const osTempDir = os.tmpdir();
 
@@ -59,7 +49,7 @@ function removeFilesSync() {
     });
 }
 
-async function run() {
+(async function run() {
     await initialize();
 
     const arrLength = 200;
@@ -100,6 +90,4 @@ async function run() {
     }
 
     console.log('done. No errors should have been logged');
-}
-
-run();
+})();
